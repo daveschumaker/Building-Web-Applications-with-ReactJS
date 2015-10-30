@@ -4,7 +4,14 @@ var ListItem = require('./list-item');
 
 module.exports = React.createClass({
   handleClick: function() {
-    alert("Ack, I've been clicked!");
+    // setState is a very important method that changes a value of the state
+    // and forces our component to re-render.
+    // NOTE: We never want to directly manipulate the state object. We should always use setState method.
+    this.setState({open: !this.state.open});
+  },
+
+  getInitialState: function() {
+    return {open: false};
   },
 
   render: function() {
@@ -19,7 +26,7 @@ module.exports = React.createClass({
         title={this.props.title} 
         subTitleClassName="caret" 
       />
-      <ul>
+      <ul className={"dropdown-menu " + (this.state.open ? "show" : "")} >
         {list}
       </ul>
     </div>
