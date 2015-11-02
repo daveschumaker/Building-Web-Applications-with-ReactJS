@@ -23,7 +23,12 @@ module.exports = React.createClass({
     </div>
   },
   handleClick: function() {
+    this.props.itemsStore.push({
+      text: this.state.text,
+      done: false
+    });
 
+    this.setState({text: ''});
   },
   handleInputChange: function(event) {
     this.setState({text: event.target.value});

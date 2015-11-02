@@ -18,9 +18,9 @@ var App = React.createClass({
     return <div className="row panel panel-default">
       <div className="col-md-8 col-md-offset-2">
       <h2 className="text-center">
-        To-Do List
+        React.js To-Do List
       </h2>
-      <Header />
+      <Header itemsStore={this.firebaseRefs.items} />
       </div>
     </div>
   }
